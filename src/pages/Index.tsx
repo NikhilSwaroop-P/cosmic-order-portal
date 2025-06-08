@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Truck, Clock, Zap, CreditCard, Shield, CheckCircle } from 'lucide-react';
 
 const Index = () => {
@@ -13,11 +12,11 @@ const Index = () => {
   const [paymentMethod, setPaymentMethod] = useState('card');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 pt-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-2">
             Checkout
           </h1>
           <p className="text-muted-foreground">Complete your order in a few simple steps</p>
@@ -29,7 +28,7 @@ const Index = () => {
             {/* Shipping Information */}
             <Card className="p-6 transform hover:scale-[1.02] transition-all duration-300 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <div className="flex items-center mb-6">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
                   1
                 </div>
                 <h2 className="text-xl font-semibold">Shipping Information</h2>
@@ -46,20 +45,11 @@ const Index = () => {
                   />
                 </div>
                 
-                <div>
-                  <Label htmlFor="firstName">First Name</Label>
+                <div className="md:col-span-2">
+                  <Label htmlFor="fullName">Full Name</Label>
                   <Input 
-                    id="firstName" 
-                    placeholder="John"
-                    className="mt-1 transition-all duration-200 focus:scale-[1.02] focus:shadow-md"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input 
-                    id="lastName" 
-                    placeholder="Doe"
+                    id="fullName" 
+                    placeholder="John Doe"
                     className="mt-1 transition-all duration-200 focus:scale-[1.02] focus:shadow-md"
                   />
                 </div>
@@ -94,17 +84,11 @@ const Index = () => {
                 
                 <div>
                   <Label htmlFor="state">State</Label>
-                  <Select>
-                    <SelectTrigger className="mt-1 transition-all duration-200 focus:scale-[1.02] focus:shadow-md">
-                      <SelectValue placeholder="Select state" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="ny">New York</SelectItem>
-                      <SelectItem value="ca">California</SelectItem>
-                      <SelectItem value="tx">Texas</SelectItem>
-                      <SelectItem value="fl">Florida</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Input 
+                    id="state" 
+                    placeholder="New York"
+                    className="mt-1 transition-all duration-200 focus:scale-[1.02] focus:shadow-md"
+                  />
                 </div>
                 
                 <div className="md:col-span-2">
@@ -121,7 +105,7 @@ const Index = () => {
             {/* Shipping Method */}
             <Card className="p-6 transform hover:scale-[1.02] transition-all duration-300 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <div className="flex items-center mb-6">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
                   <Truck className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl font-semibold">Shipping Method</h2>
@@ -130,25 +114,25 @@ const Index = () => {
               <RadioGroup value={shippingMethod} onValueChange={setShippingMethod} className="space-y-3">
                 <div className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
                   shippingMethod === 'standard' 
-                    ? 'border-blue-500 bg-blue-50 shadow-md transform scale-[1.02]' 
+                    ? 'border-purple-500 bg-purple-50 shadow-md transform scale-[1.02]' 
                     : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
                 }`}>
                   <div className="flex items-center space-x-3">
                     <RadioGroupItem value="standard" id="standard" />
                     <div className="flex items-center space-x-2">
-                      <Clock className="w-5 h-5 text-blue-600" />
+                      <Clock className="w-5 h-5 text-purple-600" />
                       <div>
                         <Label htmlFor="standard" className="font-medium cursor-pointer">Standard Shipping</Label>
                         <p className="text-sm text-muted-foreground">Delivery in 5-7 business days</p>
                       </div>
                     </div>
                   </div>
-                  <span className="text-lg font-semibold text-blue-600">₹25</span>
+                  <span className="text-lg font-semibold text-purple-600">₹25</span>
                 </div>
                 
                 <div className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
                   shippingMethod === 'express' 
-                    ? 'border-blue-500 bg-blue-50 shadow-md transform scale-[1.02]' 
+                    ? 'border-purple-500 bg-purple-50 shadow-md transform scale-[1.02]' 
                     : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
                 }`}>
                   <div className="flex items-center space-x-3">
@@ -166,7 +150,7 @@ const Index = () => {
                 
                 <div className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
                   shippingMethod === 'nextday' 
-                    ? 'border-blue-500 bg-blue-50 shadow-md transform scale-[1.02]' 
+                    ? 'border-purple-500 bg-purple-50 shadow-md transform scale-[1.02]' 
                     : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
                 }`}>
                   <div className="flex items-center space-x-3">
@@ -187,7 +171,7 @@ const Index = () => {
             {/* Billing & Payment */}
             <Card className="p-6 transform hover:scale-[1.02] transition-all duration-300 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <div className="flex items-center mb-6">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
                   <CreditCard className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl font-semibold">Billing & Payment</h2>
@@ -196,17 +180,17 @@ const Index = () => {
               <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod} className="space-y-3 mb-6">
                 <div className={`flex items-center space-x-3 p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
                   paymentMethod === 'card' 
-                    ? 'border-blue-500 bg-blue-50 shadow-md transform scale-[1.02]' 
+                    ? 'border-purple-500 bg-purple-50 shadow-md transform scale-[1.02]' 
                     : 'border-gray-200 hover:border-gray-300'
                 }`}>
                   <RadioGroupItem value="card" id="card" />
-                  <CreditCard className="w-5 h-5 text-blue-600" />
+                  <CreditCard className="w-5 h-5 text-purple-600" />
                   <Label htmlFor="card" className="font-medium cursor-pointer">Credit/Debit Card</Label>
                 </div>
                 
                 <div className={`flex items-center space-x-3 p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
                   paymentMethod === 'upi' 
-                    ? 'border-blue-500 bg-blue-50 shadow-md transform scale-[1.02]' 
+                    ? 'border-purple-500 bg-purple-50 shadow-md transform scale-[1.02]' 
                     : 'border-gray-200 hover:border-gray-300'
                 }`}>
                   <RadioGroupItem value="upi" id="upi" />
@@ -271,7 +255,7 @@ const Index = () => {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <Card className="p-6 sticky top-8 transform hover:scale-[1.02] transition-all duration-300 shadow-xl border-0 bg-gradient-to-br from-white to-blue-50/50 backdrop-blur-sm">
+            <Card className="p-6 sticky top-8 transform hover:scale-[1.02] transition-all duration-300 shadow-xl border-0 bg-gradient-to-br from-white to-purple-50/50 backdrop-blur-sm">
               <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
               
               <div className="space-y-3 mb-4">
@@ -302,7 +286,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 rounded-lg font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg">
+              <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg">
                 Complete Order
               </Button>
               
